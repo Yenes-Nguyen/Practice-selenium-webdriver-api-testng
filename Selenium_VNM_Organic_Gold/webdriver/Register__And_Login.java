@@ -30,7 +30,7 @@ public class Register__And_Login {
 		
 		//Assert.assertEquals(driver.findElement(By.xpath("//p[@id='user_login_mess']")).getText(), "Vui lòng nhập Email");
 		String emailempt = driver.findElement(By.xpath("//p[@id='user_login_mess']")).getText();
-		Assert.assertTrue(emailempt.contains("Vui lòng nhập Email"));
+		Assert.assertEquals(emailempt,"Vui lòng nhập Email");
 	}
 //	 @AfterClass
 //	 public void afterClass() {
