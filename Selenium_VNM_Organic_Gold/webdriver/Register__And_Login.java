@@ -5,8 +5,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
+//import org.testng.Assert;
+//import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -22,23 +22,14 @@ public class Register__And_Login {
 
 	@Test 
 	public void TC_01_Login_With_Empty_Email_And_Password() {
-		driver.get("http://live.demoguru99.com/");	
-		driver.findElement(By.xpath("//div[@class ='footer']//a[@title='My Account']")).click();
+		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/san-pham/sua-bot-tre-em-organic-gold/");	
+		driver.findElement(By.linkText("Đăng nhập")).click();
 		
-		driver.findElement(By.id("email")).sendKeys("");
-		driver.findElement(By.name("login[password]")).sendKeys("");
-		
-		driver.findElement(By.xpath("//button[@title ='Login']")).click();
-		 
-		String emailErrorMessage = driver.findElement(By.xpath("//div[@id='advice-required-entry-email']")).getText();
-		Assert.assertEquals(emailErrorMessage, "This is a required field.");
-		
-		String passwordErrorMessage = driver.findElement(By.xpath("//div[@id='advice-required-entry-pass']")).getText();
-		Assert.assertEquals(passwordErrorMessage, "This is a required field.");
+		driver.findElement(By.className("btn-common"));
 	}
-	 @AfterClass
-	 public void afterClass() {
-		  driver.quit();
-	 }
+//	 @AfterClass
+//	 public void afterClass() {
+//		  driver.quit();
+//	 }
 
 }
