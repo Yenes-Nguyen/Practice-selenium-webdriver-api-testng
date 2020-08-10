@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -35,5 +36,9 @@ public class Register__And_Login {
 		String passwordErrorMessage = driver.findElement(By.xpath("//div[@id='advice-required-entry-pass']")).getText();
 		Assert.assertEquals(passwordErrorMessage, "This is a required field.");
 	}
+	 @AfterClass
+	 public void afterClass() {
+		  driver.quit();
+	 }
 
 }
