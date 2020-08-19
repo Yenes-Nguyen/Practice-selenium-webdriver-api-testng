@@ -21,7 +21,7 @@ public class Register {
 	}
 	
 	@Test (enabled = false)
-	public void TC_01_Login_With_Empty_All_Field() {
+	public void TC_01_Register_With_Empty_All_Field() {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
 		
@@ -32,8 +32,8 @@ public class Register {
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='user_password']/following-sibling::div/i")).getText(),"Vui lòng nhập Mật khẩu");
 	}
 	
-	@Test 
-	public void TC_02_Login_With_Invalid_Email() {
+	@Test  (enabled = false)
+	public void TC_02_Register_With_Invalid_Email() {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
 		
@@ -45,6 +45,55 @@ public class Register {
 		
 		driver.findElement(By.xpath("//form[@id='registerform']//a[@class='btn-common']")).click();
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='user_email']/following-sibling::div/i")).getText(), "Email không hợp lệ");
+		
+	}
+	
+	@Test (enabled = false)
+	public void TC_03_Register_With_Invalid_PhoneNumber() {
+		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");
+		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
+		
+		driver.findElement(By.id("display_name")).sendKeys("autotest");
+		driver.findElement(By.id("user_email")).sendKeys("auto@test.com");
+		driver.findElement(By.id("user_phone")).sendKeys("0974");
+		driver.findElement(By.id("user_password")).sendKeys("123123");
+		driver.findElement(By.id("user_password_retype")).sendKeys("123123");
+		
+		driver.findElement(By.xpath("//form[@id='registerform']//a[@class='btn-common']")).click();
+		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='user_phone']/following-sibling::div/i")).getText(), "Số điện thoại không hợp lệ");
+		
+	}
+	
+	@Test (enabled = false)
+	public void TC_04_Register_With_Password_And_RetypePassword_Not_Match() {
+		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");
+		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
+		
+		driver.findElement(By.id("display_name")).sendKeys("autotest");
+		driver.findElement(By.id("user_email")).sendKeys("auto@test.com");
+		driver.findElement(By.id("user_phone")).sendKeys("0974000000");
+		driver.findElement(By.id("user_password")).sendKeys("123123");
+		driver.findElement(By.id("user_password_retype")).sendKeys("123");
+		
+		driver.findElement(By.xpath("//form[@id='registerform']//a[@class='btn-common']")).click();
+		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='user_password_retype']/following-sibling::div/i")).getText(), "Mật khẩu nhập lại không đúng");
+		
+	}
+	
+	@Test 
+	public void TC_05_Register_With_Option_Pregnant () {
+		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");
+		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
+		
+		driver.findElement(By.id("display_name")).sendKeys("autotest");
+		driver.findElement(By.id("user_email")).sendKeys("auto@test.com");
+		driver.findElement(By.id("user_phone")).sendKeys("0974000000");
+		driver.findElement(By.id("user_password")).sendKeys("123123");
+		driver.findElement(By.id("user_password_retype")).sendKeys("123123");
+		driver.findElement(By.xpath("//p[@class='check-box-text']/strong[contains(text(),'Đang mang thai')]")).click();
+		
+		driver.findElement(By.xpath("//form[@id='registerform']//a[@class='btn-common']")).click();
+		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='error-fetus']//i")).getText(), "Vui lòng chọn lại ngày dự sinh của Bé.");
 		
 	}
 	
