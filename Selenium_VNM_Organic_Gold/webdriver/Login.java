@@ -21,7 +21,7 @@ public class Login {
 		driver.manage().window().maximize();
 	}
 
-	@Test (enabled = false)
+	@Test 
 	public void TC_01_Login_With_Empty_Email_And_Password() {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");	
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
@@ -36,7 +36,7 @@ public class Login {
 		
 	}
 	
-	@Test (enabled = false)
+	@Test 
 	public void TC_02_Login_With_Invalid_Email() {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");	
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
@@ -48,8 +48,8 @@ public class Login {
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@id='user_login_mess' and text()='Email không hợp lệ']")).isDisplayed());
 	}
 	
-	@Test (enabled = false)
-	public void TC_03_Logi_With_Empty_Password() {
+	@Test 
+	public void TC_03_Login_With_Empty_Password() {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");	
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
 		
@@ -61,7 +61,7 @@ public class Login {
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@id='user_login_mess' and text()='Vui lòng nhập Mật khẩu']")).isDisplayed());
 	}
 	
-	@Test (enabled = false)
+	@Test 
 	public void TC_04_Login_With_Wrong_Password() {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");	
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
@@ -74,7 +74,7 @@ public class Login {
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@id='user_login_mess' and text()='Sai email hoặc mật khẩu']")).isDisplayed());
 	}
 		
-	@Test (enabled = false)
+	@Test 
 	public void TC_05_Login_With_Valid_Email_And_Password() throws InterruptedException {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");	
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
@@ -90,7 +90,7 @@ public class Login {
 		Assert.assertEquals(titleHome,"DINH DƯỠNG ORGANIC CHÂU ÂU");
 	}
 	
-	@Test (enabled = false)
+	@Test 
 	public void TC_06_Forgot_Password_With_Empty_Email() throws InterruptedException {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");	
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
@@ -103,7 +103,7 @@ public class Login {
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@id='forgetpass_mess' and text()='Vui lòng nhập Email']")).isDisplayed());
 	}
 	
-	@Test (enabled = false)
+	@Test 
 	public void TC_07_Forgot_Password_With_Empty_Email() throws InterruptedException {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");	
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
@@ -117,7 +117,7 @@ public class Login {
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@id='forgetpass_mess' and text()='Email không hợp lệ']")).isDisplayed());
 	}
 
-	@Test (enabled = false)
+	@Test 
 	public void TC_08_Forgot_Password_With_NotRegisted_Email() throws InterruptedException {
 		driver.get("https://www.vinamilk.com.vn/dinh-duong-organic/vi/");	
 		driver.findElement(By.xpath("//div[@class='header__user']//span")).click();
